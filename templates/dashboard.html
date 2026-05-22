@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>
+        Welcome {{ user[1] }}
+    </h1>
+
+    <h2>
+        Total Tasks: {{ t_total }}
+    </h2>
+
+    {% for status in all_status %}
+
+    <span>
+        {{ status[0] }} : {{ status[1] }}
+    </span>
+
+    <br>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="/create-project">
+        <button>
+            Create Project
+        </button>
+    </a>
+
+    <a href="/logout">
+        <button>
+            Logout
+        </button>
+    </a>
+
+    <h2>
+        Your Projects
+    </h2>
+
+    {% for project in projects %}
+
+    <div>
+        
+        <h3>
+            {{ project[1] }}
+        </h3>
+
+        <a href="/project/{{ project[0] }}">
+            <button>
+                Open Project
+            </button>
+        </a>
+
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>

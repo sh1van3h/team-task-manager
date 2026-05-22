@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Project
+    </title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>
+        {{ project[1] }}
+    </h1>
+
+    <h2>
+        Members
+    </h2>
+
+    {% if members %}
+
+        {% for member in members %}
+
+            <p>
+                {{ member[0] }}
+            </p>
+
+        {% endfor %}
+
+    {% else %}
+
+            <p>
+                No members added
+            </p>
+
+    {% endif %}
+
+    {% if project[2] == user[0] %}
+
+    <a href="/project/{{ project[0] }}/create-task">
+        <button>
+            Create Task
+        </button>
+    </a>
+
+    {% endif %}
+
+    {% if project[2] == user[0] %}
+
+    <a href="/project/{{ project[0] }}/add-member">
+
+        <button>
+            Add Member
+        </button>
+
+    </a>
+
+    {% endif %}
+
+    <a href="/dashboard">
+        <button>
+            Dashboard
+        </button>
+    </a>
+
+    <h2>
+        Tasks
+    </h2>
+
+    {% for task in tasks %}
+
+        <div>
+
+            <h3>
+                {{ task[3] }}
+            </h3>
+
+            <p>
+                {{ task[4] }}
+            </p>
+
+            <p>
+                {{ task[5] }}
+            </p>
+
+            <p>
+                {{ task[6] }}
+            </p>
+
+            <a href="/update-task/{{ task[0] }}/To Do">
+                <button>
+                    To Do
+                </button>
+            </a>
+
+            <a href="/update-task/{{ task[0] }}/In Progress">
+                <button>
+                    In Progress
+                </button>
+            </a>
+
+            <a href="/update-task/{{ task[0] }}/Done">
+                <button>
+                    Done
+                </button>
+            </a>
+
+            {% if project[2] == user[0] %}
+
+            <a href="/delete-task/{{ task[0] }}">
+                <button>
+                    Delete Task
+                </button>
+            </a>
+
+            {% endif %}
+
+            <p>
+                {{ task[7] }}
+            </p>
+
+
+        </div>
+        <hr>
+
+        {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Create Project</h1>
+    <form action="/create-project" method="POST">
+        <input type="text" name="project_name" placeholder="What Is Your Project">
+        <br><br>
+        <button type="submit">
+            Create Project
+        </button>
+    </form>
+</body>
+</html>
