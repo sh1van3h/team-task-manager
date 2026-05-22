@@ -178,4 +178,4 @@ This project helped in understanding:
 
 ## Author
 
-Shivansh Parmar
+Shivansh
